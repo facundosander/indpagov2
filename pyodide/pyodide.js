@@ -1,6 +1,6 @@
 async function loadPyodideAndRun() {
     const pyodide = await loadPyodide({
-        indexURL : "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
+        indexURL: "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/"
     });
     return pyodide;
 }
@@ -23,8 +23,7 @@ document.getElementById('converter-form').addEventListener('submit', async (e) =
         const arrayBuffer = event.target.result;
         const data = new Uint8Array(arrayBuffer);
         
-        await pyodide.loadPackage("pandas");
-        await pyodide.loadPackage("openpyxl");
+        await pyodide.loadPackage(["pandas", "openpyxl"]);
 
         pyodide.globals.set('data', data);
         pyodide.globals.set('fecha', fecha);
