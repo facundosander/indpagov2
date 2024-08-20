@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel to XML Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Convert Excel to XML</h1>
+    <form id="converter-form">
+        <label for="file-input">Select Excel File:</label>
+        <input type="file" id="file-input" accept=".xlsx" required>
+        
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" required>
+        
+        <label for="cod-suc">Código de Sucursal:</label>
+        <input type="number" id="cod-suc" required>
+        
+        <label for="tasa-cambio">Tasa de Cambio:</label>
+        <input type="number" step="0.01" id="tasa-cambio" required>
+        
+        <label for="filas-seleccionadas">Filas Seleccionadas (separadas por coma):</label>
+        <input type="text" id="filas-seleccionadas">
+        
+        <button type="submit">Convertir</button>
+    </form>
+    
+    <div id="result">
+        <h2>Resultado:</h2>
+        <textarea id="output" rows="10" cols="50"></textarea>
+        <a id="download-link" href="#" download="output.xml">Download XML</a>
+    </div>
+    
+    <script src="pyodide/pyodide.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
